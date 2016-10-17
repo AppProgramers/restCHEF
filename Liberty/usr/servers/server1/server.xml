@@ -35,4 +35,8 @@
     <basicRegistry id="basic" realm="BasicRealm">
         <user name="Manuel Jiménez" password="{xor}ampsajI+MSpqamxq"/>
     </basicRegistry>
+
+    <applicationMonitor updateTrigger="mbean"/>
+
+    <webApplication id="ChefServer" location="ChefServer.war" name="ChefServer"/>
 </server>

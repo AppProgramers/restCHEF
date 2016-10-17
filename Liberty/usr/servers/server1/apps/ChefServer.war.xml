@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archive>
+    <dir sourceOnDisk="C:\Users\manol\git\restCHEF\ChefServer\WebContent" targetInArchive="/"/>
+    <dir sourceOnDisk="C:\Users\manol\git\restCHEF\ChefServer\build\classes" targetInArchive="/WEB-INF/classes"/>
+</archive>

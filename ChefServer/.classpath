@@ -13,5 +13,34 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="Lib/aopalliance-repackaged-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="Lib/asm-debug-all-5.0.4.jar"/>
+	<classpathentry kind="lib" path="Lib/hk2-api-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="Lib/hk2-locator-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="Lib/hk2-utils-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="Lib/jackson-annotations-2.7.0.jar"/>
+	<classpathentry kind="lib" path="Lib/jackson-core-2.7.0.jar"/>
+	<classpathentry kind="lib" path="Lib/jackson-databind-2.7.0.jar"/>
+	<classpathentry kind="lib" path="Lib/jackson-jaxrs-base-2.2.3.jar"/>
+	<classpathentry kind="lib" path="Lib/jackson-jaxrs-json-provider-2.2.3.jar"/>
+	<classpathentry kind="lib" path="Lib/jackson-module-jaxb-annotations-2.2.3.jar"/>
+	<classpathentry kind="lib" path="Lib/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="Lib/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="Lib/javax.inject-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="Lib/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="Lib/javax.ws.rs-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="Lib/jaxb-api-2.2.7.jar"/>
+	<classpathentry kind="lib" path="Lib/jersey-client.jar"/>
+	<classpathentry kind="lib" path="Lib/jersey-common.jar"/>
+	<classpathentry kind="lib" path="Lib/jersey-container-servlet-core.jar"/>
+	<classpathentry kind="lib" path="Lib/jersey-container-servlet.jar"/>
+	<classpathentry kind="lib" path="Lib/jersey-guava-2.22.2.jar"/>
+	<classpathentry kind="lib" path="Lib/jersey-media-jaxb.jar"/>
+	<classpathentry kind="lib" path="Lib/jersey-media-json-jackson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="Lib/jersey-server.jar"/>
+	<classpathentry kind="lib" path="Lib/org.osgi.core-4.2.0.jar"/>
+	<classpathentry kind="lib" path="Lib/osgi-resource-locator-1.0.1.jar"/>
+	<classpathentry kind="lib" path="Lib/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="Lib/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

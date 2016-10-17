@@ -1,0 +1,13 @@
+
+arg0=--batch-file=--stop
+arg1=stop
+arg2=server1
+exit=21
+
+                 Java home:  C:\Program Files\Java\jre1.8.0_102
+              Install root:  C:/Users/manol/git/restCHEF/Liberty/
+          System libraries:  C:/Users/manol/git/restCHEF/Liberty/lib/
+                 User root:  C:/Users/manol/git/restCHEF/Liberty/usr/
+                    Config:  C:/Users/manol/git/restCHEF/Liberty/usr/servers/server1/
+                    Output:  C:/Users/manol/git/restCHEF/Liberty/usr/servers/server1/
+

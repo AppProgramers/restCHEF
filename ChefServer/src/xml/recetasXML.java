@@ -15,7 +15,7 @@ import org.w3c.dom.NodeList;
 import java.io.*;
 import linkedList.*;
 
-public class programXml {
+public class recetasXML {
 	
 	@SuppressWarnings("rawtypes")
 	List<List> recetas = new List<List>();
@@ -191,7 +191,7 @@ public class programXml {
 		List<String> listaPinto = new List<String>();
 		List<String> listaPollo = new List<String>();
 		
-		programXml xml = new programXml();
+		recetasXML xml = new recetasXML();
 		listaEmpanada.insertTail("masa");
 		listaEmpanada.insertTail("carne");
 		listaEmpanada.insertTail("cebolla");

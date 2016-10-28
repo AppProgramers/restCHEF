@@ -99,7 +99,7 @@ public class programXml {
 		}
 	}
 	public void edit(String nombreRecet, List<String> nuIngrediente){
-		File xml = new File("archivo.xml");
+		File xml = new File("recetas.xml");
 		String stringNombre;
 		
 		try{
@@ -213,9 +213,11 @@ public class programXml {
 		listaPollo.insertTail("sal");
 		listaPollo.insertTail("Salsa Tomate");
 		
-		xml.write("Gallo Pinto", listaPinto);
+		//xml.write("Gallo Pinto", listaPinto);
 		//xml.edit("empanada", listaEmpanada);
 		//xml.edit("Pollo", listaPollo);
+		
+		xml.read();
 	}
 
 }

@@ -34,7 +34,9 @@ List<String> verduras = new List<String>();
 			Node<String> temp;
 			temp = prodVerduras.getHead();
 			for(int cont = 0; cont < prodVerduras.getLenght(); cont = cont +1){
+				String contS = Integer.toString;
 				Element ingrediente = file.createElement("verdura");
+				ingrediente.setAttribute("id", contS);
 				ingrediente.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(ingrediente);
 				temp = temp.getNextNode();
@@ -160,7 +162,7 @@ List<String> verduras = new List<String>();
 		listaVerduras2.insertTail("reopllo");
 		listaVerduras2.insertTail("papinos");
 		
-		//xmlV.writeV(listaVerduras);
+		xmlV.writeV(listaVerduras);
 		//xmlV.readFXml();
 		//xmlV.getVerduras();
 		//xmlV.editV(listaVerduras2);

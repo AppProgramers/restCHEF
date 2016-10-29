@@ -1,4 +1,4 @@
-package sort;
+package ce1103.ChefREST.sort;
 
 public class QuickSortFruits {
 	

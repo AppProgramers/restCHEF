@@ -1,4 +1,4 @@
-package xml;
+package ce1103.ChefREST.xml;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -12,8 +12,10 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+
+import ce1103.ChefREST.dataStructure.*;
+
 import java.io.*;
-import linkedList.*;
 
 public class recetasXML {
 	

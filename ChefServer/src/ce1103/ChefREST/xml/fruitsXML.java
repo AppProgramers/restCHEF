@@ -1,4 +1,4 @@
-package xml;
+package ce1103.ChefREST.xml;
 
 import java.io.File;
 
@@ -15,26 +15,25 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import linkedList.List;
-import linkedList.Node;
+import ce1103.ChefREST.dataStructure.List;
+import ce1103.ChefREST.dataStructure.Node;
 
-public class granosXML {
-	List<String> granos = new List<String>();
-
-
-	public void writeG(List<String> prodGranos){
+public class fruitsXML {
+	List<String> frutas = new List<String>();
+	
+	public void writeF(List<String> nuFruits){
 		try{
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			
 			Document file = builder.newDocument();
-			Element root = file.createElement("granos");
+			Element root = file.createElement("frutas");
 			file.appendChild(root);
 				
 			Node<String> temp;
-			temp = prodGranos.getHead();
-			for(int cont = 0; cont < prodGranos.getLenght(); cont = cont +1){
-				Element ingrediente = file.createElement("grano");
+			temp = nuFruits.getHead();
+			for(int cont = 0; cont < nuFruits.getLenght(); cont = cont +1){
+				Element ingrediente = file.createElement("fruta");
 				ingrediente.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(ingrediente);
 				temp = temp.getNextNode();
@@ -43,7 +42,7 @@ public class granosXML {
 			TransformerFactory transformerF = TransformerFactory.newInstance();
 			Transformer transformer = transformerF.newTransformer();
 			DOMSource source = new DOMSource(file);
-			StreamResult result = new StreamResult(new File("granos.xml"));
+			StreamResult result = new StreamResult(new File("frutas.xml"));
 			transformer.transform(source, result);
 			
 		} 
@@ -56,19 +55,18 @@ public class granosXML {
 	}
 	
 	public void readFXml(){
-		File xml = new File("granos.xml");
+		File xml = new File("frutas.xml");
 		try{
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document xmlP = builder.parse(xml);
             
-            NodeList listaGrano = xmlP.getElementsByTagName("grano");
-            granos.setHead(null);
+            NodeList listaRecetas = xmlP.getElementsByTagName("fruta");
             
             
-            for (int i = 0; i < listaGrano.getLength(); i = i +1) {
-            	Element element = (Element) listaGrano.item(i);
-                String grano = element.getFirstChild().getTextContent();
-                granos.insertTail(grano);
+            for (int i = 0; i < listaRecetas.getLength(); i = i +1) {
+            	Element element = (Element) listaRecetas.item(i);
+                String fruta = element.getFirstChild().getTextContent();
+                frutas.insertTail(fruta);
             }
             
 		}
@@ -76,8 +74,8 @@ public class granosXML {
 			e.printStackTrace();
 		}
 	}
-	public void editG(List<String> prodGrano){
-		File xml = new File("granos.xml");
+	public void editF(List<String> nuFruits){
+		File xml = new File("frutas.xml");
 		try{
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document xmlP = builder.parse(xml);
@@ -86,33 +84,33 @@ public class granosXML {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builderOld = factory.newDocumentBuilder();
 			Document file = builderOld.newDocument();
-			Element root = file.createElement("granos");
+			Element root = file.createElement("frutas");
 			file.appendChild(root);
             //*************************************************//
             
-            NodeList listaGrano = xmlP.getElementsByTagName("grano");
+            NodeList listaRecetas = xmlP.getElementsByTagName("fruta");
             List<String> listaTemp = new List<String>();
             
-            for(int i = 0; i < listaGrano.getLength(); i = i +1){
-            	Element element = (Element) listaGrano.item(i);
-            	String granos = element.getFirstChild().getTextContent();
-            	listaTemp.insertTail(granos);
+            for(int i = 0; i < listaRecetas.getLength(); i = i +1){
+            	Element element = (Element) listaRecetas.item(i);
+            	String fruta = element.getFirstChild().getTextContent();
+            	listaTemp.insertTail(fruta);
             }
             
             
             Node<String> temp;
             temp = listaTemp.getHead();
             for (int cont = 0; cont < listaTemp.getLenght(); cont = cont +1){
-            	Element grano = file.createElement("grano");
-				grano.appendChild(file.createTextNode((String) temp.getData()));
-				root.appendChild(grano);
+            	Element fruta = file.createElement("fruta");
+				fruta.appendChild(file.createTextNode((String) temp.getData()));
+				root.appendChild(fruta);
 				temp = temp.getNextNode();
             }
             
             Node<String> temp2;
-			temp2 = prodGrano.getHead();
-			for(int cont = 0; cont < prodGrano.getLenght(); cont = cont +1){
-				Element ingrediente = file.createElement("grano");
+			temp2 = nuFruits.getHead();
+			for(int cont = 0; cont < nuFruits.getLenght(); cont = cont +1){
+				Element ingrediente = file.createElement("fruta");
 				ingrediente.appendChild(file.createTextNode((String) temp2.getData()));
 				root.appendChild(ingrediente);
 				temp2 = temp2.getNextNode();
@@ -121,7 +119,7 @@ public class granosXML {
 			TransformerFactory transformerF = TransformerFactory.newInstance();
 			Transformer transformer = transformerF.newTransformer();
 			DOMSource source = new DOMSource(file);
-			StreamResult result = new StreamResult(new File("granos.xml"));
+			StreamResult result = new StreamResult(new File("frutas.xml"));
 			transformer.transform(source, result);
             
             
@@ -131,37 +129,36 @@ public class granosXML {
 		}
 	}
 	
-	
-
-	public void getGranos() {
-		granos.print();
+	public void getFrutas() {
+		frutas.print();
 	}
 
-	public void setGranos(List<String> granos) {
-		this.granos = granos;
+	public void setFrutas(List<String> frutas) {
+		this.frutas = frutas;
 	}
 
 	public static void main(String[] args){
-		List<String> listaGranos = new List<String>();
-		List<String> listaGranos2 = new List<String>();
-		granosXML xmlG = new granosXML();
-		listaGranos.insertTail("arroz");
-		listaGranos.insertTail("frijoles");
-		listaGranos.insertTail("lentejas");
-		listaGranos.insertTail("frijoles blancos");
-		listaGranos.insertTail("avena");
-		listaGranos.insertTail("trigo");
+		List<String> listaFruits = new List<String>();
+		List<String> listaFruits2 = new List<String>();
+		fruitsXML xmlF = new fruitsXML();
+		listaFruits.insertTail("pene");
+		listaFruits.insertTail("Banano");
+		listaFruits.insertTail("Naranja");
+		listaFruits.insertTail("Manzana");
+		listaFruits.insertTail("Pera");
+		listaFruits.insertTail("Uvas");
 		
-		listaGranos2.insertTail("arroz integral");
-		listaGranos2.insertTail("mijo");
-		listaGranos2.insertTail("sorgo");
-		listaGranos2.insertTail("quinua");
-		listaGranos2.insertTail("centeno integral");
-		listaGranos2.insertTail("triticale");
+		listaFruits2.insertTail("vagina");
+		listaFruits2.insertTail("culo");
+		listaFruits2.insertTail("pedo");
+		listaFruits2.insertTail("caca");
+		listaFruits2.insertTail("pezon");
+		listaFruits2.insertTail("sffe");
 		
-		xmlG.writeG(listaGranos);
-		//xmlG.readFXml();
-		//xmlG.getGranos();
-		xmlG.editG(listaGranos2);
+		//xmlF.writeF(listaFruits);
+		//xmlF.readFXml();
+		//xmlF.getFrutas();
+		//xmlF.editF(listaFruits2);
 	}
+
 }

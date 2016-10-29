@@ -1,6 +1,8 @@
-package linkedList;
+package ce1103.ChefREST.dataStructure;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class List <T> {
 
    private Node<T> head;

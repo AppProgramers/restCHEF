@@ -1,4 +1,4 @@
-package search;
+package ce1103.ChefREST.search;
 
 public class BinarySearch {
 	int[] arrayData;

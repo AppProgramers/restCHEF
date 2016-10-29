@@ -1,4 +1,4 @@
-package xml;
+package ce1103.ChefREST.xml;
 
 import java.io.File;
 
@@ -15,8 +15,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import linkedList.List;
-import linkedList.Node;
+import ce1103.ChefREST.dataStructure.List;
+import ce1103.ChefREST.dataStructure.Node;
 
 public class lacteosXML {
 List<String> lacteos = new List<String>();

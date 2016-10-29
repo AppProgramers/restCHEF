@@ -1,5 +1,8 @@
 package sort;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RadixSortGrains {
 	
 	
@@ -7,7 +10,7 @@ public class RadixSortGrains {
 	
 	public RadixSortGrains(int[] arra){
 		radixSort = arra;
-		RadixSort(radixSort);
+		radixsort(radixSort);
 	}
 
 	  public int[] getRadixSort() {
@@ -19,26 +22,37 @@ public class RadixSortGrains {
 	}
 
 	/** Radix Sort function **/
-    public void RadixSort( int[] a)
-    {
-        int i, m = a[0], exp = 1, n = a.length;
-        int[] b = new int[10];
-        for (i = 1; i < n; i++)
-            if (a[i] > m)
-                m = a[i];
-        while (m / exp > 0)
-        {
-            int[] bucket = new int[10];
- 
-            for (i = 0; i < n; i++)
-                bucket[(a[i] / exp) % 10]++;
-            for (i = 1; i < 10; i++)
-                bucket[i] += bucket[i - 1];
-            for (i = n - 1; i >= 0; i--)
-                b[--bucket[(a[i] / exp) % 10]] = a[i];
-            for (i = 0; i < n; i++)
-                a[i] = b[i];
-            exp *= 10;        
-        }
-    }    
+	 public void radixsort(int[] input) {
+		  final int RADIX = 10;
+		  // declare and initialize bucket[]
+		  List<Integer>[] bucket = new ArrayList[RADIX];
+		  for (int i = 0; i < bucket.length; i++) {
+		    bucket[i] = new ArrayList<Integer>();
+		  }
+		 
+		  // sort
+		  boolean maxLength = false;
+		  int tmp = -1, placement = 1;
+		  while (!maxLength) {
+		    maxLength = true;
+		    // split input between lists
+		    for (Integer i : input) {
+		      tmp = i / placement;
+		      bucket[tmp % RADIX].add(i);
+		      if (maxLength && tmp > 0) {
+		        maxLength = false;
+		      }
+		    }
+		    // empty lists into input array
+		    int a = 0;
+		    for (int b = 0; b < RADIX; b++) {
+		      for (Integer i : bucket[b]) {
+		        input[a++] = i;
+		      }
+		      bucket[b].clear();
+		    }
+		    // move to next digit
+		    placement *= RADIX;
+		  }
+		} 
 }

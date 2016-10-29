@@ -116,13 +116,13 @@ public class List <T> {
 	   }
    }
 
-   public boolean exist(T data) {
-	   boolean exist = false;
+   public Node<T> search(int id) {
+	   Node<T> exist = new Node<T>();
 	   if (head != null) {
 		   Node<T> pointer = getHead();
 		   while(pointer != null) {
-			   if (pointer.getData().equals(data)) {
-				   exist = true;
+			   if (pointer.getId() == id) {
+				   exist = pointer;
 				   break;
 			   }
 			   else {

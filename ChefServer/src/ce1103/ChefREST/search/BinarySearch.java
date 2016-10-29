@@ -7,14 +7,14 @@ public class BinarySearch {
 	public boolean binarySearch(int key, int[] arraydata) {
 		this.arrayData = arraydata;
 		this.size = arrayData.length;
+		boolean exist = false;
 		int low = 0;
-		int high = size - 1;
-		
+		int high = size - 1;		
 
 		while (high >= low) {
 			int middle = (low + high) / 2;
 			if (arrayData[middle] == key) {
-				return true;
+				exist = true;
 			}
 			if (arrayData[middle] < key) {
 				low = middle + 1;
@@ -23,6 +23,7 @@ public class BinarySearch {
 				high = middle - 1;
 			}
 		}
-		return false;
+		
+		return exist;
 	}
 }

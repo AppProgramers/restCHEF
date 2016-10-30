@@ -34,7 +34,7 @@ List<String> verduras = new List<String>();
 			Node<String> temp;
 			temp = prodVerduras.getHead();
 			for(int cont = 0; cont < prodVerduras.getLenght(); cont = cont +1){
-				String contS = Integer.toString;
+				String contS = Integer.toString(5);
 				Element ingrediente = file.createElement("verdura");
 				ingrediente.setAttribute("id", contS);
 				ingrediente.appendChild(file.createTextNode((String) temp.getData()));

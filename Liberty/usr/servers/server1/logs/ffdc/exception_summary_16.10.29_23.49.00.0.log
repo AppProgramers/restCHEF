@@ -1,0 +1,10 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      1   10/29/16 23:49:00:421 CST   10/29/16 23:49:00:421 CST java.lang.ClassNotFoundException com.ibm.ws.webcontainer.servlet.ServletWrapper.loadServlet 208
+                                                                            - C:\Users\manol\git\restCHEF\Liberty\usr\servers\server1\logs\ffdc\ffdc_16.10.29_23.49.00.0.log
+     1      4   10/29/16 23:49:58:158 CST   10/29/16 23:51:30:371 CST com.ibm.ws.webcontainer.webapp.WebAppErrorReport com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter 82
+                                                                            - C:\Users\manol\git\restCHEF\Liberty\usr\servers\server1\logs\ffdc\ffdc_16.10.29_23.49.58.0.log
+     2      2   10/29/16 23:49:58:245 CST   10/29/16 23:51:30:371 CST com.ibm.ws.webcontainer.webapp.WebAppErrorReport com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter 144
+                                                                            - C:\Users\manol\git\restCHEF\Liberty\usr\servers\server1\logs\ffdc\ffdc_16.10.29_23.49.58.1.log
+------+------+---------------------------+---------------------------+---------------------------

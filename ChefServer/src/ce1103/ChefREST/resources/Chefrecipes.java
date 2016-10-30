@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import ce1103.ChefREST.data.listwrapper;
 import ce1103.ChefREST.dataStructure.List;
 
-@Path("/Chef")
+@Path("/chef")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class Chefrecipes {

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <carnes>
-	<carne>costilla de cerdo</carne>
-	<carne>lomo de res</carne>
-	<carne>pechuga de pollo</carne>
-	<carne>lomo de paleta</carne> 
-	<carne>lomito de res</carne>
-	<carne>rabo de vaca</carne>
-	<carne>chuleta de cerdo</carne>
-	<carne>chuleta de res</carne>
-	<carne>atun</carne>
-	<carne>aleta de tiburon</carne>
-	<carne>pulpo</carne>
-	<carne>curvina</carne>
+	<carne id="141">costillaCerdo</carne>
+	<carne id="101">lomoRes</carne>
+	<carne id="136">pechugaPollo</carne>
+	<carne id="114">lomoPaleta</carne>
+	<carne id="131">lomitoRes</carne>
+	<carne id="66">raboVaca</carne>
+	<carne id="119">chuletaCerdo</carne>
+	<carne id="116">chuletaRes</carne>
+	<carne id="58">atun</carne>
+	<carne id="143">aletaTiburon</carne>
+	<carne id="84">pulpo</carne>
+	<carne id="85">corvina</carne>
 </carnes>

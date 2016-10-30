@@ -181,7 +181,7 @@ public class recetasXML {
 		return listwrapper.listaRecetas;
 	}
 
-	
+/**	
 	public static void main(String[] args){
 		List<String> listaEmpanada = new List<String>();
 		List<String> listaPinto = new List<String>();
@@ -215,5 +215,6 @@ public class recetasXML {
 		
 		xml.read();
 	}
+**/
 
 }

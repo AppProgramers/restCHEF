@@ -10,16 +10,17 @@ import ce1103.ChefREST.data.listwrapper;
 import ce1103.ChefREST.dataStructure.List;
 
 @Path("/chef")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class Chefrecipes {
 	
 	@GET
-	@Path("/lista")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/lib")
 	public List<String> sendRecipes(){
-		listwrapper.listaCarnes.insertHead("Manuel");
-		listwrapper.listaCarnes.insertHead("Alfonso");
-		listwrapper.listaCarnes.insertHead("Manuel");
-		return listwrapper.listaCarnes;
+		List<String> manu = new List<>();
+		manu.insertTail("hey");
+		manu.insertTail("it's me");
+		manu.insertTail("mario");
+		return manu;
+		
 	}
 }

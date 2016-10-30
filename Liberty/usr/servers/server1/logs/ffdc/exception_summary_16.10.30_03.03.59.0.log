@@ -1,0 +1,8 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      1    10/30/16 3:03:59:051 CST    10/30/16 3:03:59:051 CST java.lang.IllegalStateException com.ibm.ws.artifact.loose.internal.LooseArtifactNotifier 384
+                                                                            - C:\Users\manol\git\restCHEF\Liberty\usr\servers\server1\logs\ffdc\ffdc_16.10.30_03.03.59.0.log
+     1      4    10/30/16 3:03:59:146 CST    10/30/16 3:03:59:169 CST java.lang.IllegalStateException com.ibm.ws.artifact.loose.internal.LooseArtifactNotifier 372
+                                                                            - C:\Users\manol\git\restCHEF\Liberty\usr\servers\server1\logs\ffdc\ffdc_16.10.30_03.03.59.1.log
+------+------+---------------------------+---------------------------+---------------------------

@@ -1,0 +1,6 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      1    10/30/16 1:00:42:036 CST    10/30/16 1:00:42:036 CST java.lang.ClassNotFoundException com.ibm.ws.webcontainer.servlet.ServletWrapper.loadServlet 208
+                                                                            - C:\Users\manol\git\restCHEF\Liberty\usr\servers\server1\logs\ffdc\ffdc_16.10.30_01.00.42.0.log
+------+------+---------------------------+---------------------------+---------------------------

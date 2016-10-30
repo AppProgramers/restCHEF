@@ -17,10 +17,12 @@ import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
+import ce1103.ChefREST.utility.ParserId;
 import ce1103.ChefREST.data.listwrapper;
 
 public class carnesXML {
 
+	ParserId pars = new ParserId();
 
 	public void writeC(List<String> prodCarnes){
 		try{
@@ -35,6 +37,8 @@ public class carnesXML {
 			temp = prodCarnes.getHead();
 			for(int cont = 0; cont < prodCarnes.getLenght(); cont = cont +1){
 				Element ingrediente = file.createElement("carne");
+				int idString = pars.parseString(temp.getData());
+				ingrediente.setAttribute("id", Integer.toString(idString));
 				ingrediente.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(ingrediente);
 				temp = temp.getNextNode();
@@ -68,8 +72,10 @@ public class carnesXML {
             
             for (int i = 0; i < listaCarnes.getLength(); i = i +1) {
             	Element element = (Element) listaCarnes.item(i);
+            	String att = element.getAttribute("id");
                 String carne = element.getFirstChild().getTextContent();
-                listwrapper.listaCarnes.insertTail(carne);
+                int conte = Integer.parseInt(att);
+                listwrapper.listaCarnes.insertTailId(carne, conte);
             }
             
 		}
@@ -105,6 +111,8 @@ public class carnesXML {
             temp = listaTemp.getHead();
             for (int cont = 0; cont < listaTemp.getLenght(); cont = cont +1){
             	Element carne = file.createElement("carne");
+            	int idString = pars.parseString(temp.getData());
+				carne.setAttribute("id", Integer.toString(idString));
 				carne.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(carne);
 				temp = temp.getNextNode();
@@ -114,6 +122,8 @@ public class carnesXML {
 			temp2 = prodCarnes.getHead();
 			for(int cont = 0; cont < prodCarnes.getLenght(); cont = cont +1){
 				Element ingrediente = file.createElement("carne");
+				int idString = pars.parseString(temp2.getData());
+				ingrediente.setAttribute("id", Integer.toString(idString));
 				ingrediente.appendChild(file.createTextNode((String) temp2.getData()));
 				root.appendChild(ingrediente);
 				temp2 = temp2.getNextNode();
@@ -134,8 +144,8 @@ public class carnesXML {
 	
 
 
-	public void getCarnes() {
-		listwrapper.listaCarnes.print();;
+	public void printCarnes() {
+		listwrapper.listaCarnes.printWithId();
 	}
 
 
@@ -143,23 +153,24 @@ public class carnesXML {
 		List<String> listaCarnes = new List<String>();
 		List<String> listaCarnes2 = new List<String>();
 		carnesXML xmlC = new carnesXML();
-		listaCarnes.insertTail("costilla de cerdo");
-		listaCarnes.insertTail("lomo de res");
-		listaCarnes.insertTail("pechuga de pollo");
-		listaCarnes.insertTail("lomo de paleta");
-		listaCarnes.insertTail("lomimto de res");
-		listaCarnes.insertTail("rabo de vaca");
+		listaCarnes.insertTail("costillaCerdo");
+		listaCarnes.insertTail("lomoRes");
+		listaCarnes.insertTail("pechugaPollo");
+		listaCarnes.insertTail("lomoPaleta");
+		listaCarnes.insertTail("lomitoRes");
+		listaCarnes.insertTail("raboVaca");
 		
-		listaCarnes2.insertTail("chuleta de cerdo");
-		listaCarnes2.insertTail("chuleta de res");
+		listaCarnes2.insertTail("chuletaCerdo");
+		listaCarnes2.insertTail("chuletaRes");
 		listaCarnes2.insertTail("atun");
-		listaCarnes2.insertTail("aleta de tiburon");
+		listaCarnes2.insertTail("aletaTiburon");
 		listaCarnes2.insertTail("pulpo");
-		listaCarnes2.insertTail("curvina");
+		listaCarnes2.insertTail("corvina");
 		
 		//xmlC.writeC(listaCarnes);
-		xmlC.readFXml();
-		//xmlC.getCarnes();
+		//xmlC.readFXml();
+		//xmlC.printCarnes();
 		//xmlC.editC(listaCarnes2);
 	}
+
 }

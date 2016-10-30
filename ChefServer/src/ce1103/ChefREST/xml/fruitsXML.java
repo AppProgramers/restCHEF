@@ -17,10 +17,12 @@ import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
+import ce1103.ChefREST.utility.ParserId;
 import ce1103.ChefREST.data.listwrapper;
 
 public class fruitsXML {
 
+	ParserId pars = new ParserId();
 	
 	public void writeF(List<String> nuFruits){
 		try{
@@ -35,6 +37,8 @@ public class fruitsXML {
 			temp = nuFruits.getHead();
 			for(int cont = 0; cont < nuFruits.getLenght(); cont = cont +1){
 				Element ingrediente = file.createElement("fruta");
+				int idString = pars.parseString(temp.getData());
+				ingrediente.setAttribute("id", Integer.toString(idString));
 				ingrediente.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(ingrediente);
 				temp = temp.getNextNode();
@@ -66,8 +70,10 @@ public class fruitsXML {
             
             for (int i = 0; i < listaRecetas.getLength(); i = i +1) {
             	Element element = (Element) listaRecetas.item(i);
+            	String att = element.getAttribute("id");
                 String fruta = element.getFirstChild().getTextContent();
-                listwrapper.listaFruits.insertTail(fruta);
+                int conte = Integer.parseInt(att);
+                listwrapper.listaFruits.insertTailId(fruta,conte);
             }
             
 		}
@@ -103,6 +109,8 @@ public class fruitsXML {
             temp = listaTemp.getHead();
             for (int cont = 0; cont < listaTemp.getLenght(); cont = cont +1){
             	Element fruta = file.createElement("fruta");
+            	int idString = pars.parseString(temp.getData());
+				fruta.setAttribute("id", Integer.toString(idString));
 				fruta.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(fruta);
 				temp = temp.getNextNode();
@@ -112,6 +120,8 @@ public class fruitsXML {
 			temp2 = nuFruits.getHead();
 			for(int cont = 0; cont < nuFruits.getLenght(); cont = cont +1){
 				Element ingrediente = file.createElement("fruta");
+				int idString = pars.parseString(temp2.getData());
+				ingrediente.setAttribute("id", Integer.toString(idString));
 				ingrediente.appendChild(file.createTextNode((String) temp2.getData()));
 				root.appendChild(ingrediente);
 				temp2 = temp2.getNextNode();
@@ -130,16 +140,16 @@ public class fruitsXML {
 		}
 	}
 	
-	public void getFrutas() {
-		 listwrapper.listaFruits.print();
+	public void printFrutas() {
+		 listwrapper.listaFruits.printWithId();
 	}
 
-	
+
 	public static void main(String[] args){
 		List<String> listaFruits = new List<String>();
 		List<String> listaFruits2 = new List<String>();
 		fruitsXML xmlF = new fruitsXML();
-		listaFruits.insertTail("pene");
+		
 		listaFruits.insertTail("Banano");
 		listaFruits.insertTail("Naranja");
 		listaFruits.insertTail("Manzana");
@@ -155,7 +165,7 @@ public class fruitsXML {
 		
 		//xmlF.writeF(listaFruits);
 		//xmlF.readFXml();
-		//xmlF.getFrutas();
+		//xmlF.printFrutas();
 		//xmlF.editF(listaFruits2);
 	}
 

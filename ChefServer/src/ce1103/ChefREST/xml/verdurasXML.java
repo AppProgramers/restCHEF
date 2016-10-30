@@ -19,9 +19,11 @@ import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
 import ce1103.ChefREST.data.listwrapper;
 
+import ce1103.ChefREST.utility.*;
+
 public class verdurasXML {
 
-
+	ParserId pars = new ParserId();
 
 	public void writeV(List<String> prodVerduras){
 		try{
@@ -35,9 +37,9 @@ public class verdurasXML {
 			Node<String> temp;
 			temp = prodVerduras.getHead();
 			for(int cont = 0; cont < prodVerduras.getLenght(); cont = cont +1){
-				String contS = Integer.toString(5);
 				Element ingrediente = file.createElement("verdura");
-				ingrediente.setAttribute("id", contS);
+				int idString = pars.parseString(temp.getData());
+				ingrediente.setAttribute("id", Integer.toString(idString));
 				ingrediente.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(ingrediente);
 				temp = temp.getNextNode();
@@ -67,12 +69,12 @@ public class verdurasXML {
             NodeList listaVerdura = xmlP.getElementsByTagName("verdura");
             listwrapper.listaVerduras.setHead(null);
             
-            
-            
             for (int i = 0; i < listaVerdura.getLength(); i = i +1) {
             	Element element = (Element) listaVerdura.item(i);
+            	String att = element.getAttribute("id");
                 String verdura = element.getFirstChild().getTextContent();
-                listwrapper.listaVerduras.insertTail(verdura);
+                int conte = Integer.parseInt(att);
+                listwrapper.listaVerduras.insertTailId(verdura, conte);
             }
             
 		}
@@ -108,6 +110,8 @@ public class verdurasXML {
             temp = listaTemp.getHead();
             for (int cont = 0; cont < listaTemp.getLenght(); cont = cont +1){
             	Element vedura = file.createElement("verdura");
+            	int idString = pars.parseString(temp.getData());
+				vedura.setAttribute("id", Integer.toString(idString));
 				vedura.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(vedura);
 				temp = temp.getNextNode();
@@ -117,6 +121,8 @@ public class verdurasXML {
 			temp2 = prodVreduras.getHead();
 			for(int cont = 0; cont < prodVreduras.getLenght(); cont = cont +1){
 				Element ingrediente = file.createElement("verdura");
+				int idString = pars.parseString(temp2.getData());
+				ingrediente.setAttribute("id", Integer.toString(idString));
 				ingrediente.appendChild(file.createTextNode((String) temp2.getData()));
 				root.appendChild(ingrediente);
 				temp2 = temp2.getNextNode();
@@ -137,8 +143,8 @@ public class verdurasXML {
 	
 	
 	
-	public void getVerduras() {
-		listwrapper.listaVerduras.print();
+	public void printVerduras() {
+		listwrapper.listaVerduras.printWithId();
 	}
 
 
@@ -160,10 +166,10 @@ public class verdurasXML {
 		listaVerduras2.insertTail("reopllo");
 		listaVerduras2.insertTail("papinos");
 		
-		xmlV.writeV(listaVerduras);
-		//xmlV.readFXml();
-		//xmlV.getVerduras();
+		//xmlV.writeV(listaVerduras);
+		xmlV.readFXml();
+		xmlV.printVerduras();
 		//xmlV.editV(listaVerduras2);
 	}
-	
+
 }

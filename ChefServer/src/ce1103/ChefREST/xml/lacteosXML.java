@@ -17,10 +17,12 @@ import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
+import ce1103.ChefREST.utility.ParserId;
 import ce1103.ChefREST.data.listwrapper;
 
 public class lacteosXML {
-
+	
+	ParserId pars = new ParserId();
 	
 	public void writeL(List<String> prodLacteos){
 		try{
@@ -35,6 +37,8 @@ public class lacteosXML {
 			temp = prodLacteos.getHead();
 			for(int cont = 0; cont < prodLacteos.getLenght(); cont = cont +1){
 				Element lacteo = file.createElement("lacteo");
+				int idString = pars.parseString(temp.getData());
+				lacteo.setAttribute("id", Integer.toString(idString));
 				lacteo.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(lacteo);
 				temp = temp.getNextNode();
@@ -66,8 +70,10 @@ public class lacteosXML {
             
             for (int i = 0; i < listaLacteos.getLength(); i = i +1) {
             	Element eleLact = (Element) listaLacteos.item(i);
+            	String att = eleLact.getAttribute("id");
                 String lacteo = eleLact.getFirstChild().getTextContent();
-                listwrapper.listaLacteos.insertTail(lacteo);
+                int conte = Integer.parseInt(att);
+                listwrapper.listaLacteos.insertTailId(lacteo, conte);
             }
             
 		}
@@ -103,6 +109,8 @@ public class lacteosXML {
             temp = listaTemp.getHead();
             for (int cont = 0; cont < listaTemp.getLenght(); cont = cont +1){
             	Element eleLact = file.createElement("lacteo");
+            	int idString = pars.parseString(temp.getData());
+            	eleLact.setAttribute("id", Integer.toString(idString));
 				eleLact.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(eleLact);
 				temp = temp.getNextNode();
@@ -112,6 +120,8 @@ public class lacteosXML {
 			temp2 = prodLacteos.getHead();
 			for(int cont = 0; cont < prodLacteos.getLenght(); cont = cont +1){
 				Element elemL = file.createElement("lacteo");
+				int idString = pars.parseString(temp2.getData());
+				elemL.setAttribute("id", Integer.toString(idString));
 				elemL.appendChild(file.createTextNode((String) temp2.getData()));
 				root.appendChild(elemL);
 				temp2 = temp2.getNextNode();
@@ -130,8 +140,8 @@ public class lacteosXML {
 		}
 	}
 	
-	public void getLacteos() {
-		 listwrapper.listaLacteos.print();
+	public void printLacteos() {
+		 listwrapper.listaLacteos.printWithId();
 	}
 
 
@@ -140,22 +150,23 @@ public class lacteosXML {
 		List<String> listaLacteos2 = new List<String>();
 		lacteosXML xmlL = new lacteosXML();
 		listaLacteos.insertTail("queso");
-		listaLacteos.insertTail("leche de mipalo");
+		listaLacteos.insertTail("lecheVaca");
 		listaLacteos.insertTail("natilla");
-		listaLacteos.insertTail("queso Amarillo");
-		listaLacteos.insertTail("leche condensada");
+		listaLacteos.insertTail("quesoAmarillo");
+		listaLacteos.insertTail("lecheCondensada");
 		listaLacteos.insertTail("yogurt");
 		
 		listaLacteos2.insertTail("mantequilla");
-		listaLacteos2.insertTail("queso crema");
+		listaLacteos2.insertTail("quesoCrema");
 		listaLacteos2.insertTail("helasdos");
-		listaLacteos2.insertTail("Cuajada");
-		listaLacteos2.insertTail("Leche en polvo");
+		listaLacteos2.insertTail("cuajada");
+		listaLacteos2.insertTail("lechePolvo");
 		listaLacteos2.insertTail("requeson");
 		
 		//xmlL.writeL(listaLacteos);
 		//xmlL.editL(listaLacteos2);
 		xmlL.readFXml();
-		xmlL.getLacteos();
+		//xmlL.printLacteos();
 	}
+
 }

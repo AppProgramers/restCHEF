@@ -17,11 +17,12 @@ import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
+import ce1103.ChefREST.utility.ParserId;
 import ce1103.ChefREST.data.listwrapper;
 
 public class granosXML {
 	
-
+	ParserId pars = new ParserId();
 
 	public void writeG(List<String> prodGranos){
 		try{
@@ -36,6 +37,8 @@ public class granosXML {
 			temp = prodGranos.getHead();
 			for(int cont = 0; cont < prodGranos.getLenght(); cont = cont +1){
 				Element ingrediente = file.createElement("grano");
+				int idString = pars.parseString(temp.getData());
+				ingrediente.setAttribute("id", Integer.toString(idString));
 				ingrediente.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(ingrediente);
 				temp = temp.getNextNode();
@@ -68,8 +71,10 @@ public class granosXML {
             
             for (int i = 0; i < listaGrano.getLength(); i = i +1) {
             	Element element = (Element) listaGrano.item(i);
+            	String att = element.getAttribute("id");
                 String grano = element.getFirstChild().getTextContent();
-                listwrapper.listaGranos.insertTail(grano);
+                int conte = Integer.parseInt(att);
+                listwrapper.listaGranos.insertTailId(grano, conte);
             }
             
 		}
@@ -105,6 +110,8 @@ public class granosXML {
             temp = listaTemp.getHead();
             for (int cont = 0; cont < listaTemp.getLenght(); cont = cont +1){
             	Element grano = file.createElement("grano");
+            	int idString = pars.parseString(temp.getData());
+            	grano.setAttribute("id", Integer.toString(idString));
 				grano.appendChild(file.createTextNode((String) temp.getData()));
 				root.appendChild(grano);
 				temp = temp.getNextNode();
@@ -114,6 +121,8 @@ public class granosXML {
 			temp2 = prodGrano.getHead();
 			for(int cont = 0; cont < prodGrano.getLenght(); cont = cont +1){
 				Element ingrediente = file.createElement("grano");
+				int idString = pars.parseString(temp2.getData());
+				ingrediente.setAttribute("id", Integer.toString(idString));
 				ingrediente.appendChild(file.createTextNode((String) temp2.getData()));
 				root.appendChild(ingrediente);
 				temp2 = temp2.getNextNode();
@@ -134,8 +143,8 @@ public class granosXML {
 	
 	
 
-	public void getGranos() {
-		listwrapper.listaGranos.print();
+	public void printGranos() {
+		listwrapper.listaGranos.printWithId();
 	}
 
 
@@ -157,9 +166,10 @@ public class granosXML {
 		listaGranos2.insertTail("centeno integral");
 		listaGranos2.insertTail("triticale");
 		
-		xmlG.writeG(listaGranos);
-		//xmlG.readFXml();
-		//xmlG.getGranos();
-		xmlG.editG(listaGranos2);
+		//xmlG.writeG(listaGranos);
+		xmlG.readFXml();
+		xmlG.printGranos();
+		//xmlG.editG(listaGranos2);
 	}
+
 }

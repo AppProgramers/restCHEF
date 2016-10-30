@@ -35,6 +35,18 @@ public class List <T> {
 	   lenght++;
    }
    
+   public void insertTailId(T data, int id) {
+	   if (head == null) {
+		   head = tail = new Node<T>(data, id);
+	   }
+	   else{
+		   Node<T> tmpNode = new Node<>(data, id);
+		   tail.setNextNode(tmpNode);
+		   tail = tmpNode;
+	   }
+	   lenght++;
+   }
+   
    public void deleteHead() {
 	   if (head != null) {
 		   if (head == tail) {
@@ -111,6 +123,17 @@ public class List <T> {
 		   Node<T> pointer = head;
 		   while(pointer != null) {
 			   System.out.println(pointer.getData()+"\n");
+			   pointer = pointer.getNextNode();
+		   }
+	   }
+   }
+   
+   public void printWithId() {
+	   if (head != null) {
+		   Node<T> pointer = head, id;
+		   while(pointer != null) {
+			   System.out.println(pointer.getData());
+			   System.out.println(pointer.getId() + "\n");
 			   pointer = pointer.getNextNode();
 		   }
 	   }

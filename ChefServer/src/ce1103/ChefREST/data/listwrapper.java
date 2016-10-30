@@ -9,4 +9,5 @@ public class listwrapper {
 	public static List<String> listaGranos = new List<String>();
 	public static List<String> listaLacteos = new List<String>();
 	public static List<String> listaVerduras = new List<String>();
+	public static List<List> listaRecetas = new List<List>();
 }

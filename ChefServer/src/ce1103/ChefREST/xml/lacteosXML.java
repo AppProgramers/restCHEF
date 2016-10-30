@@ -17,9 +17,10 @@ import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
+import ce1103.ChefREST.data.listwrapper;
 
 public class lacteosXML {
-List<String> lacteos = new List<String>();
+
 	
 	public void writeL(List<String> prodLacteos){
 		try{
@@ -66,7 +67,7 @@ List<String> lacteos = new List<String>();
             for (int i = 0; i < listaLacteos.getLength(); i = i +1) {
             	Element eleLact = (Element) listaLacteos.item(i);
                 String lacteo = eleLact.getFirstChild().getTextContent();
-                lacteos.insertTail(lacteo);
+                listwrapper.listaLacteos.insertTail(lacteo);
             }
             
 		}
@@ -130,12 +131,9 @@ List<String> lacteos = new List<String>();
 	}
 	
 	public void getLacteos() {
-		lacteos.print();
+		 listwrapper.listaLacteos.print();
 	}
 
-	public void setLacteos(List<String> lacteos) {
-		this.lacteos = lacteos;
-	}
 
 	public static void main(String[] args){
 		List<String> listaLacteos = new List<String>();

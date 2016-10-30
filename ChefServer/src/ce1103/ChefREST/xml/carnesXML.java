@@ -17,9 +17,9 @@ import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
+import ce1103.ChefREST.data.listwrapper;
 
 public class carnesXML {
-List<String> carnes = new List<String>();
 
 
 	public void writeC(List<String> prodCarnes){
@@ -62,14 +62,14 @@ List<String> carnes = new List<String>();
             Document xmlP = builder.parse(xml);
             
             NodeList listaCarnes = xmlP.getElementsByTagName("carne");
-            carnes.setHead(null);
+            listwrapper.listaCarnes.setHead(null);
             System.out.println("moco");
             
             
             for (int i = 0; i < listaCarnes.getLength(); i = i +1) {
             	Element element = (Element) listaCarnes.item(i);
                 String carne = element.getFirstChild().getTextContent();
-                carnes.insertTail(carne);
+                listwrapper.listaCarnes.insertTail(carne);
             }
             
 		}
@@ -135,12 +135,9 @@ List<String> carnes = new List<String>();
 
 
 	public void getCarnes() {
-		carnes.print();;
+		listwrapper.listaCarnes.print();;
 	}
 
-	public void setCarnes(List<String> carnes) {
-		this.carnes = carnes;
-	}
 
 	public static void main(String[] args){
 		List<String> listaCarnes = new List<String>();

@@ -17,9 +17,10 @@ import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
+import ce1103.ChefREST.data.listwrapper;
 
 public class verdurasXML {
-List<String> verduras = new List<String>();
+
 
 
 	public void writeV(List<String> prodVerduras){
@@ -64,14 +65,14 @@ List<String> verduras = new List<String>();
             Document xmlP = builder.parse(xml);
             
             NodeList listaVerdura = xmlP.getElementsByTagName("verdura");
-            verduras.setHead(null);
+            listwrapper.listaVerduras.setHead(null);
             
             
             
             for (int i = 0; i < listaVerdura.getLength(); i = i +1) {
             	Element element = (Element) listaVerdura.item(i);
                 String verdura = element.getFirstChild().getTextContent();
-                verduras.insertTail(verdura);
+                listwrapper.listaVerduras.insertTail(verdura);
             }
             
 		}
@@ -137,12 +138,9 @@ List<String> verduras = new List<String>();
 	
 	
 	public void getVerduras() {
-		verduras.print();
+		listwrapper.listaVerduras.print();
 	}
 
-	public void setVerduras(List<String> verduras) {
-		this.verduras = verduras;
-	}
 
 	public static void main(String[] args){
 		List<String> listaVerduras = new List<String>();

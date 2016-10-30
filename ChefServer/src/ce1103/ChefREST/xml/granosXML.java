@@ -17,9 +17,10 @@ import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
+import ce1103.ChefREST.data.listwrapper;
 
 public class granosXML {
-	List<String> granos = new List<String>();
+	
 
 
 	public void writeG(List<String> prodGranos){
@@ -62,13 +63,13 @@ public class granosXML {
             Document xmlP = builder.parse(xml);
             
             NodeList listaGrano = xmlP.getElementsByTagName("grano");
-            granos.setHead(null);
+            listwrapper.listaGranos.setHead(null);
             
             
             for (int i = 0; i < listaGrano.getLength(); i = i +1) {
             	Element element = (Element) listaGrano.item(i);
                 String grano = element.getFirstChild().getTextContent();
-                granos.insertTail(grano);
+                listwrapper.listaGranos.insertTail(grano);
             }
             
 		}
@@ -134,12 +135,9 @@ public class granosXML {
 	
 
 	public void getGranos() {
-		granos.print();
+		listwrapper.listaGranos.print();
 	}
 
-	public void setGranos(List<String> granos) {
-		this.granos = granos;
-	}
 
 	public static void main(String[] args){
 		List<String> listaGranos = new List<String>();

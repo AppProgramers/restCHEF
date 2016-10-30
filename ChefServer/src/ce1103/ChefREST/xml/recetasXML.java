@@ -14,13 +14,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.*;
-
+import ce1103.ChefREST.data.listwrapper;
 import java.io.*;
 
 public class recetasXML {
 	
-	@SuppressWarnings("rawtypes")
-	List<List> recetas = new List<List>();
+	
 	
 	public void write(String nombreReceta, List<String> nuIngrediente){
 		try{
@@ -91,7 +90,7 @@ public class recetasXML {
                 	String stringIngrediente = dataIngrediente.getFirstChild().getTextContent();
                 	datosRecetas.insertTail(stringIngrediente);
             	}
-            	recetas.insertTail(datosRecetas);
+            	listwrapper.listaRecetas.insertTail(datosRecetas);
             	
 
             }
@@ -179,14 +178,9 @@ public class recetasXML {
 	
 	@SuppressWarnings("rawtypes")
 	public List<List> getRecetas() {
-		return recetas;
+		return listwrapper.listaRecetas;
 	}
 
-
-	public void setRecetas(List<List> recetas) {
-		this.recetas = recetas;
-	}
-	
 	
 	public static void main(String[] args){
 		List<String> listaEmpanada = new List<String>();

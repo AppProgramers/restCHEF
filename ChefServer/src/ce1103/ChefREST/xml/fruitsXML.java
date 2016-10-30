@@ -17,9 +17,10 @@ import org.w3c.dom.NodeList;
 
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.dataStructure.Node;
+import ce1103.ChefREST.data.listwrapper;
 
 public class fruitsXML {
-	List<String> frutas = new List<String>();
+
 	
 	public void writeF(List<String> nuFruits){
 		try{
@@ -66,7 +67,7 @@ public class fruitsXML {
             for (int i = 0; i < listaRecetas.getLength(); i = i +1) {
             	Element element = (Element) listaRecetas.item(i);
                 String fruta = element.getFirstChild().getTextContent();
-                frutas.insertTail(fruta);
+                listwrapper.listaFruits.insertTail(fruta);
             }
             
 		}
@@ -130,13 +131,10 @@ public class fruitsXML {
 	}
 	
 	public void getFrutas() {
-		frutas.print();
+		 listwrapper.listaFruits.print();
 	}
 
-	public void setFrutas(List<String> frutas) {
-		this.frutas = frutas;
-	}
-
+	
 	public static void main(String[] args){
 		List<String> listaFruits = new List<String>();
 		List<String> listaFruits2 = new List<String>();

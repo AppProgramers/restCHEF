@@ -13,13 +13,11 @@ import ce1103.ChefREST.dataStructure.List;
 public class Chefrecipes {
 	
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/lib")
-	public List<String> sendRecipes(){
-		List<String> manu = new List<>();
-		manu.insertTail("hey");
-		manu.insertTail("it's me");
-		manu.insertTail("mario");
+	@Produces(MediaType.TEXT_PLAIN)
+	public String sendRecipes(){
+		String manu = "Manuel";
+		//List<String> manu = new List<String>();
+		//manu.insertHead("Manu");
 		return manu;
 		
 	}

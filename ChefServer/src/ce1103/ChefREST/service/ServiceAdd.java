@@ -1,5 +1,6 @@
 package ce1103.ChefREST.service;
 
+import ce1103.ChefREST.data.listwrapper;
 import ce1103.ChefREST.dataStructure.List;
 import ce1103.ChefREST.xml.*;
 
@@ -30,6 +31,6 @@ public class ServiceAdd {
 		verduras.editV(nombre);
 	}
 	public void addOrden(String nombre){
-		
+		 listwrapper.listordenes.enqueue(nombre);
 	}
 }
